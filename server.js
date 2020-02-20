@@ -8,8 +8,7 @@ const app = express()
 app.set('view engine', 'ejs');
 
 app.get('/news', (req, res) => {
-    (async () => {
-
+    async () => {
         let feed = await parser.parseURL('https://timesofindia.indiatimes.com/rssfeeds/-2128936835.cms');
         console.log(feed.title);
 
@@ -20,11 +19,7 @@ app.get('/news', (req, res) => {
         res.render('index', {
             feed: feed
         });
-
-    })();
-
-
-
+    };
 })
 
 
